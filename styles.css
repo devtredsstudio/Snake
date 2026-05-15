@@ -1,0 +1,134 @@
+:root {
+  --bg: #111;
+  --panel: #1a1a1a;
+  --text: #eaeaea;
+  --snake: #4caf50;
+  --food: #f44336;
+  --grid-line: #2a2a2a;
+  --cell: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  gap: 1rem;
+  place-content: center;
+  padding: 1rem;
+}
+
+.hud {
+  text-align: center;
+}
+
+.hud h1,
+.hud p {
+  margin: 0.25rem 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  grid-template-rows: repeat(var(--rows), var(--cell));
+  background: #000;
+  border: 1px solid #333;
+  touch-action: none;
+  user-select: none;
+}
+
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  border: 1px solid var(--grid-line);
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+.controls,
+.mobile-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.records {
+  background: var(--panel);
+  border: 1px solid #333;
+  padding: 0.75rem 1rem;
+}
+
+.records h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.records ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.records li {
+  margin: 0.2rem 0;
+}
+
+button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #3a3a3a;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #666;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.mobile-controls {
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mobile-only {
+    display: inline-block;
+  }
+
+  .mobile-controls button {
+    min-width: 56px;
+    min-height: 56px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mobile-controls {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Clássico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <h1>Snake</h1>
+        <p>Pontuação: <strong id="score">0</strong></p>
+        <p>Velocidade: <strong id="speed">0</strong> ms/tick</p>
+        <p id="status">PC: setas/WASD | Celular: deslize ou use botões</p>
+      </header>
+
+      <section id="board" class="board" aria-label="Tabuleiro do jogo"></section>
+
+      <section class="controls" aria-label="Controles do jogo">
+        <button id="pauseBtn" type="button">Pausar</button>
+        <button id="restartBtn" type="button">Reiniciar</button>
+        <button id="soundBtn" type="button">Som ligado</button>
+        <button id="fullscreenBtn" class="mobile-only" type="button">Tela cheia</button>
+      </section>
+
+      <section class="mobile-controls" aria-label="Controles para mobile">
+        <button data-dir="up" type="button">↑</button>
+        <div class="middle-row">
+          <button data-dir="left" type="button">←</button>
+          <button data-dir="down" type="button">↓</button>
+          <button data-dir="right" type="button">→</button>
+        </div>
+      </section>
+
+      <section class="records" aria-label="Recordes pessoais">
+        <h2>Recordes Pessoais</h2>
+        <ol id="highScores"></ol>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
